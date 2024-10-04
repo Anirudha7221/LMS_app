@@ -11,6 +11,13 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+app.post('/register',()=>{
+
+})
+
+app.post('/login',()=>{
+    
+})
 
 app.listen(PORT, ()=>{
     console.log('app is running');
