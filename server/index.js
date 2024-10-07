@@ -4,7 +4,9 @@ const cors = require('cors');
 
 const connectDB = require('./dataBase');
 
-const User = require('./user')
+const Admin = require('./models/Admin');
+const Instructor = require('./models/Instructor');
+const Student = require('./models/Student');
 
 const bcrypt = require('bcrypt');
 const { use } = require('bcrypt/promises');
@@ -20,12 +22,22 @@ connectDB();
 
 app.post('/register',async(req, res)=>{
 
-    const {email, password, userType} = await req.body;
+    const {email, password, userType} = req.body;
 
     try {
         const hashedPassword= await bcrypt.hash(password, saltround);
 
-        let user= new User({username: email, password: hashedPassword, userType});
+        let user;
+
+        if(userType === 'Admin'){
+            user = new Admin({username: email, password: hashedPassword});
+        }
+        else if(userType === 'Instructor'){
+            user = new Instructor({username: email, password: hashedPassword});
+        }
+        else if(userType === 'Student'){
+            user = new Student({username: email, password: hashedPassword});
+        }
 
         user= await user.save();
 
@@ -37,10 +49,20 @@ app.post('/register',async(req, res)=>{
 
 app.post('/login',async(req, res)=>{
 
-    const {username, password, userType}= await req.body;
+    const {username, password, userType}= req.body;
 
     try {
-        const user = await User.findOne({username});
+        let user;
+
+        if(userType === 'Admin'){
+            user = await Admin.findOne({username});
+        }
+        else if(userType === 'Instructor'){
+            user = await Instructor.findOne({username});
+        }
+        else if(userType === 'Student'){
+            user = await Student.findOne({username});
+        }
 
         if(!user){
            return res.status(401).send('User not found');
@@ -61,10 +83,20 @@ app.post('/login',async(req, res)=>{
 
 app.post('/reset-password', async(req, res)=>{
 
-    const {email, newPassword, userType}=await req.body;
+    const {email, newPassword, userType}= req.body;
 
     try {
-        const user= await User.findOne({username:email});
+         let user;
+
+         if(userType === 'Admin'){
+            user = await Admin.findOne({username: email});
+         }
+         else if(userType === 'Instructor'){
+            user = await Instructor.findOne({username: email});
+         }
+         else if(userType === 'Student'){
+            user = await Student.findOne({username: email});
+         }
 
         if(!user){
             return res.status(401).send('User not found please enter correct username');
