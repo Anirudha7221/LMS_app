@@ -13,10 +13,12 @@ const Login = ({navigation, route}) => {
         const responce = await axios.post('http://localhost:8000/login',{
           username:email,
           password,
-          userType: {role}
+          userType: role
         })
 
         if(responce.status === 200){
+          const { token } = response.data;
+          await AsyncStorage.setItem('userToken', token);
           navigation.navigate('home');
         }
     } catch (error) {

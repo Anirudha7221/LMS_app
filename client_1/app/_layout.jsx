@@ -13,7 +13,7 @@ export default function RootLayout() {
 
   return (
     <NavigationContainer independent={true}>
-      <Stack.Navigator initialRouteName="index">
+      <Stack.Navigator initialRouteName="home">
         <Stack.Screen name="index" component={Index}/>
         <Stack.Screen name="login" component={Login}/>
         <Stack.Screen name="register" component={Register}/>

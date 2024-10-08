@@ -22,11 +22,15 @@ const resetPassword = ({ navigation }) => {
       return;
     }
       try {    
-        const responce =await axios.post('http://localhost:8000/reset-password');
+        const responce =await axios.post('http://localhost:8000/resetPass',{
+          username: email,
+          password,
+          userType:selected
+        });
 
         if(responce.status === 200){
           Alert.alert('Registration', 'Password updated successfully!');
-          navigation.navigate('login', selected);
+          navigation.navigate('login', {role: selected});
         }
       } catch (error) {
         console.log(error);

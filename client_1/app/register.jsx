@@ -2,7 +2,6 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from 'react-native';
 import { SelectList } from "react-native-dropdown-select-list";
-import axios from 'axios';
 
 const Register = ({ navigation }) => {
   const [name, setName] = useState('');
@@ -40,7 +39,7 @@ const Register = ({ navigation }) => {
   };
 
   const handleLogin = () => {
-    navigation.navigate('login', selected);
+    navigation.navigate('login', {role : selected});
   };
 
   return (
