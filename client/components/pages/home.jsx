@@ -22,7 +22,7 @@ const Home = () =>{
     },[]);
 
     return(
-        <View style={styles.containeer}>
+        <View style={styles.navbar}>
             <Searchbar></Searchbar>
             <TouchableOpacity style={styles.header} onPress={fetchCourses}>
                 <Text>See All Courses</Text>
@@ -43,10 +43,6 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         marginVertival: 16
     },
-    containeer: {
-        flex: 1,
-        padding: 16
-    }
 });
 
 export default Home;

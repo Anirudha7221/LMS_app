@@ -15,11 +15,11 @@ export default function RootLayout() {
   return (
     <NavigationContainer independent={true}>
       <Stack.Navigator initialRouteName="home">
-        <Stack.Screen name="index" component={Index}/>
-        <Stack.Screen name="login" component={Login}/>
-        <Stack.Screen name="register" component={Register}/>
-        <Stack.Screen name="resetPass" component={ResetPass}/>
-        <Stack.Screen name="home" component={Home}/>
+        <Stack.Screen name="index" component={Index} options={{headerShown: false}}/>
+        <Stack.Screen name="login" component={Login} options={{headerShown: false}}/>
+        <Stack.Screen name="register" component={Register} options={{headerShown: false}}/>
+        <Stack.Screen name="resetPass" component={ResetPass} options={{headerShown: false}}/>
+        <Stack.Screen name="home" component={Home} options={{headerShown: false}}/>
     </Stack.Navigator>
     </NavigationContainer>
   );

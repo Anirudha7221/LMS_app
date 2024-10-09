@@ -11,7 +11,7 @@ const Login = ({navigation, route}) => {
     Alert.alert('Login', 'Logging in...');
     try {
         const responce = await axios.post('http://localhost:8000/login',{
-          username:email,
+          email,
           password,
           userType: role
         })
@@ -40,7 +40,7 @@ const Login = ({navigation, route}) => {
       
       <TextInput
         style={styles.input}
-        placeholder="Email"
+        placeholder="Enter Username or Email"
         value={email}
         onChangeText={setEmail}
         autoCapitalize="none"

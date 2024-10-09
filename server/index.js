@@ -11,6 +11,7 @@ const Student = require('./models/Student');
 const bcrypt = require('bcrypt');
 const saltround=10;
 const JWT = require('jsonwebtoken');
+const auth = require('./auth');
 
 const PORT = process.env.PORT || 8000;
 require('dotenv').config();
@@ -91,7 +92,7 @@ app.get('/home/courses', (req, res)=>{
 
 app.post('/register',async(req, res)=>{
 
-    const {email, password, userType} = req.body;
+    const {name, email, password, userType} = req.body;
 
     try {
         const hashedPassword= await bcrypt.hash(password, saltround);
@@ -99,13 +100,13 @@ app.post('/register',async(req, res)=>{
         let user;
 
         if(userType === 'Admin'){
-            user = new Admin({username: email, password: hashedPassword});
+            user = new Admin({username: name, email, password: hashedPassword});
         }
         else if(userType === 'Instructor'){
-            user = new Instructor({username: email, password: hashedPassword});
+            user = new Instructor({username: name, email, password: hashedPassword});
         }
         else if(userType === 'Student'){
-            user = new Student({username: email, password: hashedPassword});
+            user = new Student({username: name ,email, password: hashedPassword});
         }
 
         user= await user.save();
@@ -170,7 +171,7 @@ app.post('/login',async(req, res)=>{
                 { expiresIn: '1h'},
                 (err, token)=>{
                     if(err) throw err;
-                    res.json({token});
+                    res.json(user.username);
                 }
             );
         }
@@ -184,19 +185,19 @@ app.post('/login',async(req, res)=>{
 
 app.post('/resetPass', async(req, res)=>{
 
-    const {email, newPassword, userType}= req.body;
+    const {username, newPassword, userType}= req.body;
 
     try {
          let user;
 
          if(userType === 'Admin'){
-            user = await Admin.findOne({username: email});
+            user = await Admin.findOne({username});
          }
          else if(userType === 'Instructor'){
-            user = await Instructor.findOne({username: email});
+            user = await Instructor.findOne({username});
          }
          else if(userType === 'Student'){
-            user = await Student.findOne({username: email});
+            user = await Student.findOne({username});
          }
 
         if(!user){
@@ -214,6 +215,7 @@ app.post('/resetPass', async(req, res)=>{
         return res.status(404).json();
     }
 })
+
 
 app.listen(PORT, ()=>{
     console.log('app is running');

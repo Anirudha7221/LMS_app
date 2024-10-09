@@ -23,7 +23,7 @@ const resetPassword = ({ navigation }) => {
     }
       try {    
         const responce =await axios.post('http://localhost:8000/resetPass',{
-          username: email,
+          email,
           password,
           userType:selected
         });
@@ -51,7 +51,7 @@ const resetPassword = ({ navigation }) => {
 
       <TextInput
         style={styles.input}
-        placeholder="Email"
+        placeholder="Enter Username or Email"
         value={email}
         onChangeText={setEmail}
         autoCapitalize="none"

@@ -24,6 +24,7 @@ const Register = ({ navigation }) => {
 
     try {
         const responce = await axios.post('http://localhost:8000/register',{
+          name,
           email,
           password,
           userType: selected
