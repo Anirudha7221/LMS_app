@@ -26,67 +26,77 @@ const courses = [
     {
       id: 1,
       title: 'Complete web development course',
+      category: 'popular',
       description: 'Only web development course that you will need. Covers HTML, CSS, Tailwind, Node, React, MongoDB, Prisma, Deployment etc',
       image: 'https://example.com/course-image-1.jpg',
     },
     {
       id: 2,
       title: 'Modern React with Redux [2024 Update]',
+      category: 'new',
       description: 'Master React and Redux. Apply modern design patterns to build apps with React Router, TailwindCSS, Context, and Hooks!.',
       image: 'https://example.com/course-image-2.jpg',
     },
     {
         id: 3,
         title: 'Master Microservices with Spring Boot and Spring Cloud',
+        category: 'new',
         description: 'Java Spring Boot Microservices 5-in-1 - Spring Boot, Spring Cloud, Docker, Kubernetes and REST API (REST Web Services)',
         image: 'https://example.com/course-image-2.jpg',
       },
       {
         id: 4,
         title: 'Python and Django Full Stack Web Developer Bootcamp',
+        category: 'popular',
         description: 'Learn to build websites with HTML , CSS , Bootstrap , Javascript , jQuery , Python 3 , and Django',
         image: 'https://example.com/course-image-2.jpg',
       },
       {
         id: 5,
         title: 'The Complete ASP.NET MVC 5 Course',
+        category: 'recommended',
         description: 'Learn to build fast and secure web applications with ASP.NET MVC 5 - The most popular course with 40,000+ students!',
         image: 'https://example.com/course-image-2.jpg',
       },
       {
         id: 6,
         title: 'Learn and Understand NodeJS',
+        category: 'popular',
         description: 'Dive deep under the hood of NodeJS. Learn V8, Express, the MEAN stack, core Javascript concepts, and more',
         image: 'https://example.com/course-image-2.jpg',
       },
       {
         id: 7,
         title: 'Docker & Kubernetes: The Practical Guide [2024 Edition]',
+        category: 'new',
         description: 'Learn Docker, Docker Compose, Multi-Container Projects, Deployment and all about Kubernetes from the ground up!',
         image: 'https://example.com/course-image-2.jpg',
       },
       {
         id: 8,
         title: 'Ethereum and Solidity: The Complete Developers Guid',
+        category: 'recommended',
         description: 'Use Ethereum, Solidity, and Smart Contracts to build production-ready apps based on the blockchain',
         image: 'https://example.com/course-image-2.jpg',
       },
       {
         id: 9,
         title: 'Python for beginners',
+        category: 'popular',
         description: 'Master the fundamentals of Python while working on various usecases in easy steps',
         image: 'https://example.com/course-image-2.jpg',
       },
       {
         id: 10,
         title: 'Become a WordPress Developer: Unlocking Power With Code',
+        category: 'popular',
         description: 'Learn PHP, JavaScript, WordPress theming &amp; the WP REST API to Create Custom &amp; Interactive WordPress Websites',
         image: 'https://example.com/course-image-2.jpg',
       },
   ];
 
   
-app.get('/home/courses', (req, res)=>{
+app.get('/allCourses', (req, res)=>{
     res.json(courses);
 });
 

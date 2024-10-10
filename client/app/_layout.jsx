@@ -1,12 +1,13 @@
 import * as React from "react";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Stack } from "expo-router";
 import Index from './index';
 import Register from '../components/pages/register';
 import Login from '../components/pages/login';
 import ResetPass from '../components/pages/resetPass';
 import Home from '../components/pages/home';
+import Dashboard from '../components/pages/dashboard';
+import AllCourses from '../components/pages/allCourses';
 
 export default function RootLayout() {
 
@@ -20,6 +21,8 @@ export default function RootLayout() {
         <Stack.Screen name="register" component={Register} options={{headerShown: false}}/>
         <Stack.Screen name="resetPass" component={ResetPass} options={{headerShown: false}}/>
         <Stack.Screen name="home" component={Home} options={{headerShown: false}}/>
+        <Stack.Screen name="dashboard" component={Dashboard} options={{headerShown: false}}/>
+        <Stack.Screen name="allCourses" component={AllCourses} options={{headerShown: false}}/>
     </Stack.Navigator>
     </NavigationContainer>
   );
