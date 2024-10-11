@@ -49,9 +49,9 @@ const Navbar = ()=>{
                                 <TouchableOpacity><Text style={Styles.dropdown_text}>Current Course</Text></TouchableOpacity>
                                 <TouchableOpacity><Text style={Styles.dropdown_text}>Lectures</Text></TouchableOpacity>
                                 <TouchableOpacity><Text style={Styles.dropdown_text}>Course Anlyatics</Text></TouchableOpacity>
-                                <TouchableOpacity><Text style={Styles.dropdown_text}>Assignments</Text></TouchableOpacity>
+                                <TouchableOpacity onPress={()=>navigation.navigate('assignment')}><Text style={Styles.dropdown_text}>Assignments</Text></TouchableOpacity>
                                 <TouchableOpacity><Text style={Styles.dropdown_text}>Settings</Text></TouchableOpacity> 
-                                <TouchableOpacity><Text style={Styles.dropdown_text}>Announcements</Text></TouchableOpacity>
+                                <TouchableOpacity onPress={()=>navigation.navigate('annoucement')}><Text style={Styles.dropdown_text}>Announcements</Text></TouchableOpacity>
                                 <TouchableOpacity><Text style={Styles.dropdown_text}>Help & Support</Text></TouchableOpacity>
                                 <TouchableOpacity onPress={showMenuList}><Text style={Styles.dropdown_text}>Close</Text></TouchableOpacity>
                             </View>
@@ -165,7 +165,8 @@ const Styles =StyleSheet.create({
     },
     dropdown_text:{
         padding: 10,
-        color: '#000'
+        color: '#000',
+        cursor: 'pointer'
     }
 });
 

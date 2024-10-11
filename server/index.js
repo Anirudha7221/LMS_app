@@ -28,75 +28,165 @@ const courses = [
       title: 'Complete web development course',
       category: 'popular',
       description: 'Only web development course that you will need. Covers HTML, CSS, Tailwind, Node, React, MongoDB, Prisma, Deployment etc',
-      image: 'https://example.com/course-image-1.jpg',
+      duration: '10 hours',
+      image: 'https://www.achieversit.com/management/uploads/course_image/web-dev-img1.jpeg',
+      assignment:{
+        title:'Assignment 1',
+        assignmentName: "Build a  todo app",
+        dueDate:'2024-10-25'
+
+      }
     },
     {
       id: 2,
       title: 'Modern React with Redux [2024 Update]',
       category: 'new',
       description: 'Master React and Redux. Apply modern design patterns to build apps with React Router, TailwindCSS, Context, and Hooks!.',
-      image: 'https://example.com/course-image-2.jpg',
+      duration: '10 hours',
+      image: 'https://d3f1iyfxxz8i1e.cloudfront.net/courses/course_image/a0506c47cdce.jpg',
+      assignment:{
+        title:'Assignment 1',
+        assignmentName: "Build a  todo app",
+        dueDate:'2024-10-25'
+
+      }
     },
     {
         id: 3,
         title: 'Master Microservices with Spring Boot and Spring Cloud',
         category: 'new',
         description: 'Java Spring Boot Microservices 5-in-1 - Spring Boot, Spring Cloud, Docker, Kubernetes and REST API (REST Web Services)',
-        image: 'https://example.com/course-image-2.jpg',
+        duration: '10 hours',
+        image: 'https://pic.rutube.ru/playlist/32ce9e35-6710-11ef-9430-02420a000b08.jpg',
+        assignment:{
+            title:'Assignment 1',
+            assignmentName: "Build a  todo app",
+            dueDate:'2024-10-25'
+
+         }
       },
       {
         id: 4,
         title: 'Python and Django Full Stack Web Developer Bootcamp',
-        category: 'popular',
+        category: 'recommended',
         description: 'Learn to build websites with HTML , CSS , Bootstrap , Javascript , jQuery , Python 3 , and Django',
-        image: 'https://example.com/course-image-2.jpg',
+        duration: '10 hours',
+        image: 'https://img.damasgate.com/DamasPIC/old/001a/112018vb5001/fync379t1hq0zh29os6t.jpg',
+        assignment:{
+            title:'Assignment 1',
+            assignmentName: "Build a  todo app",
+            dueDate:'2024-10-25'
+
+        }
       },
       {
         id: 5,
         title: 'The Complete ASP.NET MVC 5 Course',
         category: 'recommended',
         description: 'Learn to build fast and secure web applications with ASP.NET MVC 5 - The most popular course with 40,000+ students!',
-        image: 'https://example.com/course-image-2.jpg',
+        duration: '10 hours',
+        image: 'https://media.licdn.com/dms/image/C5612AQGwmcNJy9ZN2g/article-cover_image-shrink_600_2000/0/1520170546590?e=2147483647&v=beta&t=GaFdCLS3IbJD2NPiFna9C89fTOl_lxz6IURUpla9atU',
+        assignment:{
+            title:'Assignment 1',
+            assignmentName: "Build a  todo app",
+            dueDate:'2024-10-25'
+
+        },
       },
       {
         id: 6,
         title: 'Learn and Understand NodeJS',
         category: 'popular',
         description: 'Dive deep under the hood of NodeJS. Learn V8, Express, the MEAN stack, core Javascript concepts, and more',
-        image: 'https://example.com/course-image-2.jpg',
+        duration: '10 hours',
+        image: 'https://media.licdn.com/dms/image/D4D12AQEmvLwNsHsxNQ/article-cover_image-shrink_720_1280/0/1715925650650?e=2147483647&v=beta&t=NR2z2AC1Hp06qyqt7pogJNeWCRWdeQ6bXzV4lMOjS4g',
+        assignment:{
+            title:'Assignment 1',
+            assignmentName: "Build a  todo app",
+            dueDate:'2024-10-25'
+
+        }
       },
       {
         id: 7,
         title: 'Docker & Kubernetes: The Practical Guide [2024 Edition]',
         category: 'new',
         description: 'Learn Docker, Docker Compose, Multi-Container Projects, Deployment and all about Kubernetes from the ground up!',
-        image: 'https://example.com/course-image-2.jpg',
+        duration: '10 hours',
+        image: 'https://miro.medium.com/v2/resize:fit:980/0*E0Naiu0Tn47fFRxB.jpg',
+        assignment:{
+            title:'Assignment 1',
+            assignmentName: "Build a  todo app",
+            dueDate:'2024-10-25'
+
+        }
       },
       {
         id: 8,
         title: 'Ethereum and Solidity: The Complete Developers Guid',
         category: 'recommended',
         description: 'Use Ethereum, Solidity, and Smart Contracts to build production-ready apps based on the blockchain',
-        image: 'https://example.com/course-image-2.jpg',
+        duration: '10 hours',
+        image: 'https://www.immunebytes.com/blog/wp-content/uploads/2023/03/Smart-Contract-Deployment-on-Ethereum-The-Complete-Guide-compressed.png',
+        assignment:{
+            title:'Assignment 1',
+            assignmentName: "Build a  todo app",
+            dueDate:'2024-10-25'
+
+        }
       },
       {
         id: 9,
         title: 'Python for beginners',
         category: 'popular',
         description: 'Master the fundamentals of Python while working on various usecases in easy steps',
-        image: 'https://example.com/course-image-2.jpg',
+        duration: '10 hours',
+        image: 'https://media.licdn.com/dms/image/D4D12AQEJRC06LRk6bg/article-cover_image-shrink_600_2000/0/1684758587889?e=2147483647&v=beta&t=tSnmznAGjqmS6cgBwUBzMwDBl3kXhCW1TNwallbR__g',
+        assignment:{
+          title:'Assignment 1',
+          assignmentName: "Build a  todo app",
+          dueDate:'2024-10-25'
+  
+        }
       },
       {
         id: 10,
         title: 'Become a WordPress Developer: Unlocking Power With Code',
         category: 'popular',
         description: 'Learn PHP, JavaScript, WordPress theming &amp; the WP REST API to Create Custom &amp; Interactive WordPress Websites',
-        image: 'https://example.com/course-image-2.jpg',
+        duration: '10 hours',
+        image: 'https://media.geeksforgeeks.org/wp-content/uploads/20240521100552/Roadmap-for-WordPress-Developer-copy.webp',
+        assignment:{
+            title:'Assignment 1',
+            assignmentName: "Build a  todo app",
+            dueDate:'2024-10-25'
+
+        }
       },
   ];
 
   
 app.get('/allCourses', (req, res)=>{
+    res.json(courses);
+});
+
+app.get('/dashboard/courses', (req, res)=>{
+    res.json(courses);
+});
+
+app.get('/dashboard/assignments', (req, res)=>{
+    res.json(courses);
+});
+
+app.get('/dashboard/annoucements', (req, res)=>{
+    res.json(courses);
+});
+
+app.get('/assignments', (req, res)=>{
+    res.json(courses);
+});
+
+app.get('/announcements', (req, res)=>{
     res.json(courses);
 });
 

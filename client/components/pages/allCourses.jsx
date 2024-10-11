@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, FlatList } from 'react-native';
+import { View, Text, StyleSheet, FlatList,ScrollView, TouchableOpacity, Image } from 'react-native';
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
 import axios from 'axios';
 
@@ -8,10 +8,22 @@ const CoursesList = ({ courses }) => (
     data={courses}
     keyExtractor={(item) => item.id.toString()}
     renderItem={({ item }) => (
-      <View style={styles.courseItem}>
-        <Text style={styles.Title}>{item.title}</Text>
-        <Text style={styles.description}>{item.description}</Text>
-      </View>
+      // <View style={styles.courseItem}>
+      //   <Text style={styles.Title}>{item.title}</Text>
+      //   <Text style={styles.description}>{item.description}</Text>
+      //   <Text style={styles.description}>{item.duration}</Text>
+      // </View>
+      <ScrollView vertical showsVerticalScrollIndicator={false}>
+          <TouchableOpacity style={styles.coursesCard}>
+            <Image
+                source={item.image}
+                style={styles.coursesImage}
+            />
+             <Text style={styles.coursesTitle}>{item.title}</Text>
+             <Text style={styles.coursesText}>{item.description}</Text>
+             <Text>{item.duration}</Text>
+          </TouchableOpacity>
+      </ScrollView>
     )}
   />
 );
@@ -131,6 +143,26 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 16,
   },
+  coursesCard:{
+    borderColor: 'gray',
+    borderStyle: 'solid',
+    borderWidth: 1,
+    margin: 10,
+    borderRadius: 10,
+    padding: 10,
+  },
+  coursesTitle: {
+    fontSize: 18,
+    fontWeight: 'bold'
+  },
+  coursesText:{
+    fontSize: 14, 
+  },
+  coursesImage: {
+    borderRadius: 10,
+    width: '100%',
+    height: '20vh'
+  }
 });
 
 export default allCourses;
