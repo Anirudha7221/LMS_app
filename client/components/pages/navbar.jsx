@@ -46,7 +46,7 @@ const Navbar = ()=>{
                             <View style={Styles.dropdown_item}>
                                 <TouchableOpacity onPress={()=>navigation.navigate('dashboard')}><Text style={Styles.dropdown_text}>Dashboard</Text></TouchableOpacity>
                                 <TouchableOpacity onPress={()=>navigation.navigate('allCourses')}><Text style={Styles.dropdown_text}>All Courses</Text></TouchableOpacity>
-                                <TouchableOpacity><Text style={Styles.dropdown_text}>Current Course</Text></TouchableOpacity>
+                                <TouchableOpacity onPress={()=>navigation.navigate('newCourses')}><Text style={Styles.dropdown_text}>New Course</Text></TouchableOpacity>
                                 <TouchableOpacity><Text style={Styles.dropdown_text}>Lectures</Text></TouchableOpacity>
                                 <TouchableOpacity><Text style={Styles.dropdown_text}>Course Anlyatics</Text></TouchableOpacity>
                                 <TouchableOpacity onPress={()=>navigation.navigate('assignment')}><Text style={Styles.dropdown_text}>Assignments</Text></TouchableOpacity>

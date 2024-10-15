@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, FlatList,ScrollView, TouchableOpacity, Image } from 'react-native';
+import { View, Text, StyleSheet, FlatList,ScrollView, TouchableOpacity, Image, Button } from 'react-native';
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
+import Navbar from './navbar';
 import axios from 'axios';
 
 const CoursesList = ({ courses }) => (
@@ -8,11 +9,6 @@ const CoursesList = ({ courses }) => (
     data={courses}
     keyExtractor={(item) => item.id.toString()}
     renderItem={({ item }) => (
-      // <View style={styles.courseItem}>
-      //   <Text style={styles.Title}>{item.title}</Text>
-      //   <Text style={styles.description}>{item.description}</Text>
-      //   <Text style={styles.description}>{item.duration}</Text>
-      // </View>
       <ScrollView vertical showsVerticalScrollIndicator={false}>
           <TouchableOpacity style={styles.coursesCard}>
             <Image
@@ -22,6 +18,7 @@ const CoursesList = ({ courses }) => (
              <Text style={styles.coursesTitle}>{item.title}</Text>
              <Text style={styles.coursesText}>{item.description}</Text>
              <Text>{item.duration}</Text>
+             <Button title='Enroll'/>
           </TouchableOpacity>
       </ScrollView>
     )}
@@ -109,13 +106,16 @@ const allCourses = () => {
   );
 
   return (
-    <TabView
-      navigationState={{ index, routes }}
-      renderScene={renderScene}
-      onIndexChange={setIndex}
-      initialLayout={{ width: 300 }} // Adjust width based on your layout
-      renderTabBar={renderTabBar}
-    />
+    <View>
+      <Navbar></Navbar>
+      <TabView
+        navigationState={{ index, routes }}
+        renderScene={renderScene}
+        onIndexChange={setIndex}
+        initialLayout={{ width: 300 }} // Adjust width based on your layout
+        renderTabBar={renderTabBar}
+      />
+    </View>
   );
 };
 
@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
   },
   Title: {
     fontWeight: 'bold',
-    fontSize: 16,
+    fontSize: 20,
   },
   coursesCard:{
     borderColor: 'gray',
@@ -162,6 +162,9 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     width: '100%',
     height: '20vh'
+  },
+  button:{
+    borderRadius: 10,
   }
 });
 

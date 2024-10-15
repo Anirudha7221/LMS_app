@@ -10,6 +10,7 @@ import Dashboard from '../components/pages/dashboard';
 import AllCourses from '../components/pages/allCourses';
 import Assignments from "../components/pages/assignments";
 import Announcements from "../components/pages/announcement";
+import NewCourses from "../components/pages/newCourses";
 
 export default function RootLayout() {
 
@@ -27,6 +28,7 @@ export default function RootLayout() {
         <Stack.Screen name="allCourses" component={AllCourses} options={{headerShown: false}}/>
         <Stack.Screen name="assignment" component={Assignments} options={{headerShown: false}}/>
         <Stack.Screen name="annoucement" component={Announcements} options={{headerShown: false}}/>
+        <Stack.Screen name="newCourses" component={NewCourses} options={{headerShown: false}}/>
     </Stack.Navigator>
     </NavigationContainer>
   );
