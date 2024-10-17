@@ -22,6 +22,7 @@ const Assignments = ()=>{
     return(
         <View>
             <Navbar></Navbar>
+            
             <Text style={styles.header}>Upcoming Assignments</Text>
             <ScrollView>
             {assignments.map(announcement => (

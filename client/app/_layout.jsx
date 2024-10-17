@@ -11,6 +11,9 @@ import AllCourses from '../components/pages/allCourses';
 import Assignments from "../components/pages/assignments";
 import Announcements from "../components/pages/announcement";
 import NewCourses from "../components/pages/newCourses";
+import AddCourses from "../components/pages/addCourse";
+import EditCourses from "../components/pages/editCourse";
+import Settings from "../components/pages/settings";
 
 export default function RootLayout() {
 
@@ -29,6 +32,9 @@ export default function RootLayout() {
         <Stack.Screen name="assignment" component={Assignments} options={{headerShown: false}}/>
         <Stack.Screen name="annoucement" component={Announcements} options={{headerShown: false}}/>
         <Stack.Screen name="newCourses" component={NewCourses} options={{headerShown: false}}/>
+        <Stack.Screen name="addCourse" component={AddCourses} options={{headerShown: false}}/>
+        <Stack.Screen name="editCourse" component={EditCourses} options={{headerShown: false}}/>
+        <Stack.Screen name="settings" component={Settings} options={{headerShown: false}}/>
     </Stack.Navigator>
     </NavigationContainer>
   );

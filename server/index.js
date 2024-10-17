@@ -190,6 +190,62 @@ app.get('/announcements', (req, res)=>{
     res.json(courses);
 });
 
+app.post('/addcourse', (req, res)=>{
+
+    const {title, category, description, duration} = req.body;
+
+    const newCourse = {
+        id: courses.length+1,
+        title,
+        category,
+        description,
+        duration
+    }
+
+    courses.push(newCourse);
+
+    return res.status(200);
+});
+
+app.post('/Editcourse/:id', (req, res)=>{
+    
+    const {id}= req.params;
+
+    const {title, category, description, duration} = req.body;
+
+    const updatedCourse = {
+        title,
+        category,
+        description,
+        duration
+    }
+
+    const courseIndex = courses.findIndex(course => course.id === parseInt(id));
+
+    if(courseIndex === -1){
+        return res.status(401);
+    }
+
+    courses[courseIndex]={...courses[courseIndex], ...updatedCourse};
+
+    return res.status(200);
+});
+
+app.delete('/RemoveCourse/:id', (req,res)=>{
+
+    const {id}=req.params;
+
+    const courseIndex = courses.findIndex(course =>course.id === parseInt(id));
+
+    if(courseIndex === -1){
+        return res.status(401);
+    }
+
+    courses.splice(courseIndex, 1);
+
+    return res.status(200);
+})
+
 app.post('/register',async(req, res)=>{
 
     const {name, email, password, userType} = req.body;

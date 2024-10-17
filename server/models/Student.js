@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
-// const courses = require('./Course');
+const course = require('./Course');
 
 const studentSchema = new mongoose.Schema({
     username: {type: String, required: false, unique: true},
     email: {type: String, required: true, unique: true},
     password: {type: String, required: true},
     userType: {type: String, default: 'Student_data'},
-    // courses: [{courses}],
+    courses: {course},
 });
 
 const itemModel = mongoose.model(`Student_data`,studentSchema);

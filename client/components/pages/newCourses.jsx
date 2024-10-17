@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, FlatList, TouchableOpacity, Image, Button, ScrollView } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import Navbar from './navbar';
 import axios from 'axios';
 
 const newCourses = () => {
     const [courses, setCourses]= useState([]);
     const [loading, setLoading] = useState(true);
+    const [selectedCourse, setSelectedCourse] = useState(null);
+
+    const navigation = useNavigation();
 
     useEffect(()=>{
         const fetchData = async()=>{
@@ -23,55 +27,59 @@ const newCourses = () => {
     },[]);
 
   const handleAddCourse = () => {
-    console.log('Course added');
+    navigation.navigate('addCourse');
   };
 
   const handleEditCourse = (courseId) => {
-    console.log(`Editing course with ID: ${courseId}`);
+    navigation.navigate('editCourse', {courseId})
   };
 
-  const handleDeleteCourse = (courseId) => {
-    console.log(`Deleting course with ID: ${courseId}`);
+  const handleDeleteCourse =  async(courseId) => {
+    
+    try {
+      const response = await axios.delete(`http://localhost:8000/RemoveCourse/${courseId}`);
+
+      if(response.status === 200){
+        console.log('Course deleted sucessfully');
+      }
+    } catch (error) {
+      console.log(error); 
+    }
   };
 
   return (
-    <ScrollView style={styles.section}>
-      <Navbar></Navbar>
+    <View>
+       <Navbar></Navbar>
 
-      <View style={styles.container}>
-        <Text style={styles.sectionTitle}>New Courses</Text>
-        <TouchableOpacity style={styles.addButton}>
-            <Text style={styles.addButtonText}>+ Add New Course</Text>
-        </TouchableOpacity>
-        {loading ? <Text>Loading...</Text> : (
-            <FlatList
-                data={courses}
-                renderItem={({ item }) => (
-                <View style={styles.courseCard}>
-                    <Image source={{ uri: item.image }} style={styles.courseImage} />
-                    <View style={styles.courseInfo}>
-                        <Text style={styles.courseTitle}>{item.title}</Text>
-                        <Text style={styles.courseDescription}>{item.description}</Text>
-                        <Text style={styles.courseStatus}>Status: {item.status}</Text>
-                        <Text style={styles.courseEnrollments}>Enrollments: {item.enrollments}</Text>
-                        <View style={styles.buttonContainer}>
-                            <Button title="Edit" onPress={() => handleEditCourse(item.id)} />
-                            <Button title="Delete" onPress={() => handleDeleteCourse(item.id)} />
-                        </View>
-                    </View>
-                </View>
-            )}
-            // keyExtractor={item => item._id.toString()}
-            />
-        )}
-
-        {/* {isInstructor ? (
-            <Button title="Add New Course" onPress={handleAddCourse} />
-        ) : (
-            <Text style={styles.disabledText}>Only instructors can chaange the courses</Text>
-        )} */}
-      </View>
-    </ScrollView>
+       <ScrollView style={styles.section}>
+        <View style={styles.container}>
+          <Text style={styles.sectionTitle}>New Courses</Text>
+          <TouchableOpacity style={styles.addButton} onPress={handleAddCourse}>
+              <Text style={styles.addButtonText}>+ Add New Course</Text>
+          </TouchableOpacity>
+          {loading ? <Text>Loading...</Text> : (
+              <FlatList
+                  data={courses}
+                  renderItem={({ item }) => (
+                  <View style={styles.courseCard}>
+                      <Image source={{ uri: item.image }} style={styles.courseImage} />
+                      <View style={styles.courseInfo}>
+                          <Text style={styles.courseTitle}>{item.title}</Text>
+                          <Text style={styles.courseDescription}>{item.description}</Text>
+                          <Text style={styles.courseStatus}>Status: {item.status}</Text>
+                          <Text style={styles.courseEnrollments}>Enrollments: {item.enrollments}</Text>
+                          <View style={styles.buttonContainer}>
+                              <Button title="Edit" onPress={() => handleEditCourse(item.id)} />
+                              <Button title="Delete" onPress={() => handleDeleteCourse(item.id)} />
+                          </View>
+                      </View>
+                  </View>
+              )}
+              />
+          )}
+        </View>
+      </ScrollView>
+    </View>
   );
 };
 

@@ -20,17 +20,20 @@ const Announcements = ()=>{
     });
 
     return(
-        <View style={styles.section}>
-           <Navbar></Navbar> 
-          <Text style={styles.header}>Announcements</Text>
-          <ScrollView>
-            {announcement.map(announcement => (
-              <View key={announcement.id} style={styles.announcementCard}>
-                <Text style={styles.Title}>{announcement.title}</Text>
-                <Text style={styles.announcementContent}>{announcement.description}</Text>
-              </View>
-            ))}
-          </ScrollView>
+        <View>
+           <Navbar></Navbar>
+
+           <View style={styles.section}>
+            <Text style={styles.header}>Announcements</Text>
+            <ScrollView>
+              {announcement.map(announcement => (
+                <View key={announcement.id} style={styles.announcementCard}>
+                  <Text style={styles.Title}>{announcement.title}</Text>
+                  <Text style={styles.announcementContent}>{announcement.description}</Text>
+                </View>
+              ))}
+            </ScrollView>
+          </View>
         </View>
     )
 };

@@ -30,9 +30,10 @@ const Dashboard = ({navigation}) => {
   },[]);
 
     return (
-      <ScrollView style={styles.container}>
+      <ScrollView>
         <Navbar></Navbar>
   
+        <View  style={styles.container}>
         <View style={styles.progressSection}>
           <View style={styles.section}>
             <Text style={styles.header}>Progress Summary</Text>
@@ -63,20 +64,20 @@ const Dashboard = ({navigation}) => {
                 </View>
             ))}
             </ScrollView>
-      </View>
+          </View>
 
-      <View style={styles.section}>
-          <Text style={styles.header}>Announcements</Text>
-          <ScrollView>
-            {announcement.map(announcement => (
-              <View key={announcement.id} style={styles.announcementCard}>
-                <Text style={styles.Title}>{announcement.title}</Text>
-                <Text style={styles.announcementContent}>{announcement.description}</Text>
-              </View>
-            ))}
-          </ScrollView>
+          <View style={styles.section}>
+              <Text style={styles.header}>Announcements</Text>
+              <ScrollView>
+                {announcement.map(announcement => (
+                  <View key={announcement.id} style={styles.announcementCard}>
+                    <Text style={styles.Title}>{announcement.title}</Text>
+                    <Text style={styles.announcementContent}>{announcement.description}</Text>
+                  </View>
+                ))}
+              </ScrollView>
+            </View>
         </View>
-
       </ScrollView>
     );
   };
