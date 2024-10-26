@@ -6,7 +6,13 @@ const instructorSchema = new mongoose.Schema({
     email: {type: String, required: true, unique: true},
     password: {type: String, required: true},
     userType: {type: String, default: 'Instructor_data'},
-    courses: {course},
+    courses: [
+        {
+          type: mongoose.Schema.Types.ObjectId,
+          ref : 'Course',
+          required: false
+        }
+     ]
 });
 
 const itemModel = mongoose.model(`Instructor_data`,instructorSchema);

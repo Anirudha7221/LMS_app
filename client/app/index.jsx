@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Image, Dimensions } from 'react-native';
 
 const Index = ({navigation}) => {
 
@@ -9,14 +9,19 @@ const Index = ({navigation}) => {
       
   };
 
+  const {width} = Dimensions.get('window');
+
   return (
       <View style={styles.container}>
         <Text style={styles.header}>Welcome to Learning App</Text>
         <Text style={styles.subHeader}>Please select your role:</Text>
-        <Image 
-            source={{uri: 'https://cdni.iconscout.com/illustration/premium/thumb/mobile-learning-app-illustration-download-in-svg-png-gif-file-formats--graduation-study-online-pack-school-education-illustrations-2932179.png'}}
-            style={{width: 350, height: 300}}
-        />
+        <View style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+          <Image 
+              source={{uri: 'https://cdni.iconscout.com/illustration/premium/thumb/mobile-learning-app-illustration-download-in-svg-png-gif-file-formats--graduation-study-online-pack-school-education-illustrations-2932179.png'}}
+              style={{width: width*0.9, height: width*0.9*(150/150)}}
+              resizeMode='contain'
+          />
+        </View>
         <View style={styles.user}>
           <TouchableOpacity style={styles.button} onPress={() => handleRoleSelect('Admin')}>
             <Text style={styles.buttonText}>Admin</Text>

@@ -18,7 +18,8 @@ const Register = ({ navigation }) => {
 
   const handleRegister = async() => {
     if (password !== confirmPassword) {
-      Alert.alert('Error', 'Passwords do not match.');
+      Alert.alert("Password & Confirm Password not Matched");
+      console.log("Passoword didn't matched")
       return;
     }
 

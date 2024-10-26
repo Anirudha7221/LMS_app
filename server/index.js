@@ -13,12 +13,18 @@ const saltround=10;
 const JWT = require('jsonwebtoken');
 const auth = require('./auth');
 
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 3000;
 require('dotenv').config();
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors(
+    {
+        origin: 'http://localhost:8081',
+        methods: ['GET', 'POST', 'PUT', 'DELETE'],
+        credentials: true
+    }
+));
 
 connectDB();
 
@@ -166,27 +172,27 @@ const courses = [
   ];
 
   
-app.get('/allCourses', (req, res)=>{
+app.get('/allCourses', auth ,(req, res)=>{
     res.json(courses);
 });
 
-app.get('/dashboard/courses', (req, res)=>{
+app.get('/dashboard/courses', auth, (req, res)=>{
     res.json(courses);
 });
 
-app.get('/dashboard/assignments', (req, res)=>{
+app.get('/dashboard/assignments', auth, (req, res)=>{
     res.json(courses);
 });
 
-app.get('/dashboard/annoucements', (req, res)=>{
+app.get('/dashboard/annoucements', auth, (req, res)=>{
     res.json(courses);
 });
 
-app.get('/assignments', (req, res)=>{
+app.get('/assignments', auth, (req, res)=>{
     res.json(courses);
 });
 
-app.get('/announcements', (req, res)=>{
+app.get('/announcements', auth, (req, res)=>{
     res.json(courses);
 });
 
